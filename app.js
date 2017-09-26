@@ -9,7 +9,7 @@ var expresshandlebars = require('express-handlebars');
 // make db ready
  var mongo = require('mongodb');
  var monk = require('monk');
- var db = monk('192.168.6.10:27017/master');
+ var db = monk('localhost:27017/master');
 
 var app = express();
 
