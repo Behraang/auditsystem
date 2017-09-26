@@ -1,0 +1,149 @@
+<div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--10-col mdl-grid">
+    <form method="post" action="/upsert" style="margin-top:15px;">
+      {{#if audit}}
+        <input type="hidden" name="id" value="{{audit.id}}" />
+      {{/if}}
+
+        {{!-- AQM SURVEY --}}
+        <span class="mdl-chip mdl-chip--contact">
+          <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">A</span>
+          <span class="mdl-chip__text">AQM Survey</span>
+        </span><br>
+        
+        {{!-- USERNAME --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">Username:</h2>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" name="username" id="username" value="{{audit.username}}">
+          <label class="mdl-textfield__label" for="sample1">Username...</label>
+        </div><br>
+
+        {{!-- ENVIRONMENT --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">Environment:</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="desktop">
+            <input class="mdl-radio__button" id="desktop" name="environment" type="radio" value = "Desktop" {{setChecked audit.environment 'Desktop'}}>
+            <span class="mdl-radio__label">Desktop</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="cell-phone">
+            <input class="mdl-radio__button" id="cell-phone" name="environment" type="radio" value = "Cell Phone" {{setChecked audit.environment 'Cell Phone'}}>
+            <span class="mdl-radio__label">Cell Phone</span>
+          </label>
+        </div><br>
+
+        
+
+        {{!-- ADVERTISER NAME --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">Advertiser name:</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" name="advertiser_name" id="advertiser_name" value="{{audit.advertiser_name}}">
+          <label class="mdl-textfield__label" for="sample1">Advertiser Name...</label>
+        </div><br>
+
+        {{!-- LOCALE --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">Locale:</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" pattern="[A-Z]{2}$" name="locale" id="locale" value="{{audit.locale}}">
+          <label class="mdl-textfield__label" for="sample1">Locale...</label>
+          <span class="mdl-textfield__error">Must be two capital letters</span>
+        </div><br>
+
+        
+
+        {{!-- GENERAL AUDIT --}}
+        <span class="mdl-chip mdl-chip--contact">
+          <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">B</span>
+          <span class="mdl-chip__text">General Audit</span>
+        </span><br>
+
+        <span class="mdl-chip">
+          <span class="mdl-chip__text">Please rate the booking website (not trivago!) you just visited based on the following:</span>
+        </span><br>
+
+
+        {{!-- QUESTION 1 --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">1. The website was easy to use.</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield trv-radio-buttons">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-1">
+            <input class="mdl-radio__button" id="q1-1" name="q1" type="radio" value = "1" {{setChecked audit.q1 '1'}}>
+            <span class="mdl-radio__label">1</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-2">
+            <input class="mdl-radio__button" id="q1-2" name="q1" type="radio" value = "2" {{setChecked audit.q1 '2'}}>
+            <span class="mdl-radio__label">2</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-3">
+            <input class="mdl-radio__button" id="q1-3" name="q1" type="radio" value = "3" {{setChecked audit.q1 '3'}}>
+            <span class="mdl-radio__label">3</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-4">
+            <input class="mdl-radio__button" id="q1-4" name="q1" type="radio" value = "4" {{setChecked audit.q1 '4'}}>
+            <span class="mdl-radio__label">4</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q1-5">
+            <input class="mdl-radio__button" id="q1-5" name="q1" type="radio" value = "5" {{setChecked audit.q1 '5'}}>
+            <span class="mdl-radio__label">5</span>
+          </label>
+        </div><br>
+
+
+        {{!-- QUESTION 2 --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">2. It was effortless to navigate around the website.</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield trv-radio-buttons">
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-1">
+            <input class="mdl-radio__button" id="q2-1" name="q2" type="radio" value = "1" {{setChecked audit.q2 '1'}}>
+            <span class="mdl-radio__label">1</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-2">
+            <input class="mdl-radio__button" id="q2-2" name="q2" type="radio" value = "2" {{setChecked audit.q2 '2'}}>
+            <span class="mdl-radio__label">2</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-3">
+            <input class="mdl-radio__button" id="q2-3" name="q2" type="radio" value = "3" {{setChecked audit.q2 '3'}}>
+            <span class="mdl-radio__label">3</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-4">
+            <input class="mdl-radio__button" id="q2-4" name="q2" type="radio" value = "4" {{setChecked audit.q2 '4'}}>
+            <span class="mdl-radio__label">4</span>
+          </label>
+          <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="q2-5">
+            <input class="mdl-radio__button" id="q2-5" name="q2" type="radio" value = "5" {{setChecked audit.q2 '5'}}>
+            <span class="mdl-radio__label">5</span>
+          </label>
+        </div><br>
+
+        {{!-- QUESTION 3 --}}
+        <div class="mdl-card__title trv-title-fix">
+          <h2 class="mdl-card__title-text">3. The information shown on the website was the same as the information that was shown on trivago (room description, extras (such as breakfast, cancellation, etc), hotel specific information).</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield trv-slider">
+          <input class="mdl-slider mdl-js-slider" type="range" min="1" max="7" step="1" id="q3" name="q3" tabindex="0">
+        </div><br>
+
+        
+
+
+        
+        
+        <div class="mdl-card__actions">
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">
+            {{#if audit}}Save{{else}}Create{{/if}}
+          </button>
+          <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/">Cancel</a>
+        </div><br><br>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="mdl-grid demo-content">
+  <div class="mdl-cell mdl-cell--8-col">
+  {{#if results}}
+    <h2>Results for '{{results.q}}'</h2>
+    <table class="mdl-data-table mdl-js-data-table">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Advertiser</th>
+          <th class="mdl-data-table__cell--non-numeric">Auditor</th>
+          <th class="mdl-data-table__cell--non-numeric">Audit ID</th>
+          <th class="mdl-data-table__cell--non-numeric">Options</th>
+          <th class="mdl-data-table__cell--non-numeric">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each results}}
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">{{advertiser_name}}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{username}}</td>
+          <td>#{{id}}</td>
+          <td class="mdl-data-table__cell--non-numeric">
+            <a class="mdl-button mdl-button--colored mdl-js-button
+                    mdl-js-ripple-effect"
+             href="/edit/{{id}}">Edit</a>
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect"
+               href="/delete/{{id}}">Delete</a>
+          </td>
+          <td class="mdl-data-table__cell--non-numeric">Text here</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <h3>There are no results for '{{results.q}}'.<br> Try another keyword!</h3>
+    {{/if}}
+  </div>
+
+  {{!-- Sidebar --}}
+  <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+
+    {{!-- Stats --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--blue-300">
+        <h2 class="mdl-card__title-text">Detailed Stats</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">timeline</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Check out the detailed stats of all audits!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/stats" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+
+    <div class="demo-separator mdl-cell--1-col"></div>
+
+    {{!-- Data Analysis --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--orange-300">
+
+        <h2 class="mdl-card__title-text">Data Analysis</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">compare_arrows</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Here we show you the lates results of Data Analysis team!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/daan" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+
+    <div class="demo-separator mdl-cell--1-col"></div>
+
+    {{!-- Data Analysis --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--red-300">
+        <h2 class="mdl-card__title-text">Manual AQM</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">search</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Here you can see the the critical results that needs a quality test!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/maqm" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+  </div>
+  
+</div>

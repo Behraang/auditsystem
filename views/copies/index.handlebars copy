@@ -1,0 +1,120 @@
+<!-- Icon List -->
+<style>
+.demo-list-icon {
+  width: 300px;
+}
+</style>
+
+<div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">13<tspan font-size="0.2" dy="-0.07">%</tspan></text>
+    </svg>
+
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">42<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">58<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">11<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+  </div>
+
+  <div class="mdl-cell mdl-cell--8-col">
+     
+    {{!-- <a href="/create" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored newAudit">
+      <i class="material-icons">add</i>
+    </a> --}}
+    {{#if audits}}
+    <h2>Latest Results</h2>
+    <table class="mdl-data-table mdl-js-data-table">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Advertiser</th>
+          <th class="mdl-data-table__cell--non-numeric">Auditor</th>
+          <th class="mdl-data-table__cell--non-numeric">Audit ID</th>
+          <th class="mdl-data-table__cell--non-numeric">Environment</th>
+          <th class="mdl-data-table__cell--non-numeric">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each audits}}
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">{{advertiser_name}}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{username}}</td>
+          <td>#{{id}}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{environment}}</td>
+          <td class="mdl-data-table__cell--non-numeric">
+            <a class="mdl-button mdl-button--colored mdl-js-button
+                    mdl-js-ripple-effect"
+             href="/edit/{{id}}">Edit</a>
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect"
+               href="/delete/{{id}}">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <h2>There are no results to show!</h2>
+    {{/if}}
+  </div>
+
+  {{!-- Sidebar --}}
+  <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+
+    {{!-- Stats --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--blue-300">
+        <h2 class="mdl-card__title-text">Detailed Stats</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">timeline</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Check out the detailed stats of all audits!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/stats" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+
+    <div class="demo-separator mdl-cell--1-col"></div>
+
+    {{!-- Data Analysis --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--orange-300">
+
+        <h2 class="mdl-card__title-text">Data Analysis</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">compare_arrows</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Here we show you the lates results of Data Analysis team!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/daan" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+
+    <div class="demo-separator mdl-cell--1-col"></div>
+
+    {{!-- Data Analysis --}}
+    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+      <div class="mdl-card__title mdl-card--expand mdl-color--red-300">
+        <h2 class="mdl-card__title-text">Manual AQM</h2>
+        <i class="mdl-color-text--white-400 material-icons" style="font-size: 7em;">search</i>
+      </div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+        Here you can see the the critical results that needs a quality test!
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href="/maqm" class="mdl-button mdl-js-button mdl-js-ripple-effect">See More</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
