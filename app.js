@@ -1,39 +1,33 @@
 "use strict";
 
+
+// set up ======================================================================
 var express = require('express');
+var app      = express();
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var expresshandlebars = require('express-handlebars');
 
-// make db ready
- var mongo = require('mongodb');
- var monk = require('monk');
- var db = monk('localhost:27017/master');
+//var port     = process.env.PORT || 3001;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
-var app = express();
+var cookieParser = require('cookie-parser');
+var session      = require('express-session');
 
-// Make our db accessible to our router
- app.use(function(req,res,next){
-     req.db = db;
-     next();
- });
+var configDB = require('./config/database.js');
 
-var routes = require('./routes');
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
 
+require('./config/passport')(passport); // pass passport for configuration
 
-
+// set up our express application
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-var hbs = require('handlebars');
-hbs.registerHelper("setChecked", function(value, currentValue)
-{
-    if ( value == currentValue ) {
-       return "checked"
-    } else {
-       return "";
-    }
-});
+
 
 app.engine('handlebars', expresshandlebars({
   layoutsDir: 'views',
@@ -45,8 +39,31 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser()); // read cookies (needed for auth)
 
-app.use('/', routes);
+
+// required for passport
+app.use(session({ secret: 'ilovecookiescookiescookiescookiescookiescookiescookies' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+// Check helper for handlebars
+var hbs = require('handlebars');
+hbs.registerHelper("setChecked", function(value, currentValue)
+{
+    if ( value == currentValue ) {
+       return "checked"
+    } else {
+       return "";
+    }
+});
+
+
+// routes ======================================================================
+require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

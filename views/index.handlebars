@@ -26,44 +26,14 @@
     </svg>
   </div>
 
-  <div class="mdl-cell mdl-cell--8-col">
-     
-    {{!-- <a href="/create" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored newAudit">
-      <i class="material-icons">add</i>
-    </a> --}}
-    {{#if audits}}
-    <h2>Latest Results</h2>
-    <table class="mdl-data-table mdl-js-data-table">
-      <thead>
-        <tr>
-          <th class="mdl-data-table__cell--non-numeric">Advertiser</th>
-          <th class="mdl-data-table__cell--non-numeric">Auditor</th>
-          <th class="mdl-data-table__cell--non-numeric">Locale</th>
-          <th class="mdl-data-table__cell--non-numeric">Environment</th>
-          <th class="mdl-data-table__cell--non-numeric">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each audits}}
-        <tr>
-          <td class="mdl-data-table__cell--non-numeric">{{advertiser_name}}</td>
-          <td class="mdl-data-table__cell--non-numeric">{{username}}</td>
-          <td>{{locale}}</td>
-          <td class="mdl-data-table__cell--non-numeric">{{environment}}</td>
-          <td class="mdl-data-table__cell--non-numeric">
-            <a class="mdl-button mdl-button--colored mdl-js-button
-                    mdl-js-ripple-effect"
-             href="/edit/{{id}}">Edit</a>
-            <a class="mdl-button mdl-js-button mdl-js-ripple-effect"
-               href="/delete/{{id}}">Delete</a>
-          </td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-    {{else}}
-    <h2>There are no results to show!</h2>
-    {{/if}}
+  <div class="mdl-cell mdl-cell--8-col">   
+    <div class="mdl-grid center-items">
+      <div class="mdl-cell mdl-cell--4-col">
+        <h2>Authentication</h2>
+        <a href="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="margin-right:15px;">Login</a>
+        <a href="/signup" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Signup</a>
+      </div>
+    </div>
   </div>
 
   {{!-- Sidebar --}}
