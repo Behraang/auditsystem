@@ -9,7 +9,6 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var expresshandlebars = require('express-handlebars');
 
-//var port     = process.env.PORT || 3001;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');

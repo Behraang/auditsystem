@@ -8,7 +8,7 @@
 
 var app = require('./app');
 var http = require('http');
-var models = require('./models');
+// var models = require('./models');
 
 
 /**
@@ -23,18 +23,21 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+// launch ======================================================================
+app.listen(port);
+console.log('The magic happens on port ' + port);
 
 /**
  * Load the models.
  */
-models.sequelize.sync().then(function() {
+// models.sequelize.sync().then(function() {
   /**
    * Listen on provided port, on all network interfaces.
    */
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
-});
+  // server.listen(port);
+  // server.on('error', onError);
+  // server.on('listening', onListening);
+// });
 
 /**
  * Normalize a port into a number, string, or false.
