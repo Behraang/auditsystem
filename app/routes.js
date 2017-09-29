@@ -4,7 +4,9 @@ module.exports = function(app, passport) {
     // Index PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index.handlebars', {title: 'Index'}); // load the index.handlebars file
+        res.render('index.handlebars', {
+        user : req.user, // get the user out of session and pass to template
+        title: 'Index'}); // load the index.handlebars file
     });
 
     // =====================================
@@ -14,6 +16,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/home', isLoggedIn, function(req, res) {
         res.render('home.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Home'
         });
     });
@@ -34,7 +37,10 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.handlebars', { message: req.flash('loginMessage'), title: 'Login' }); 
+        res.render('login.handlebars', {
+            user : req.user, // get the user out of session and pass to template 
+            message: req.flash('loginMessage'), 
+            title: 'Login' }); 
     });
 
     // process the login form
@@ -88,6 +94,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/stats', isLoggedIn, function(req, res) {
         res.render('stats.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Detailed Stats'
         });
     });
@@ -99,6 +106,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/daan', isLoggedIn, function(req, res) {
         res.render('daan.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Data Analysis'
         });
     });
@@ -110,6 +118,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/maqm', isLoggedIn, function(req, res) {
         res.render('maqm.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Manual AQM'
         });
     });
@@ -121,6 +130,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/kanban', isLoggedIn, function(req, res) {
         res.render('kanban.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Kanban Board'
         });
     });
@@ -132,6 +142,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/newsboard', isLoggedIn, function(req, res) {
         res.render('newsboard.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'News Board'
         });
     });
@@ -143,6 +154,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/newsletter', isLoggedIn, function(req, res) {
         res.render('newsletter.handlebars', {
+            user : req.user, // get the user out of session and pass to template
             title: 'Newsletter'
         });
     });
