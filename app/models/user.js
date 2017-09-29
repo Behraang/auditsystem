@@ -3,15 +3,14 @@ var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+var userSchema = new mongoose.Schema({
 	username	 : String,
     email        : String,
     password     : String,
-},
-{
-    versionKey: false // You should be aware of the outcome after set to false
-}
-);
+},{ 
+	collection: 'user' // stop mongoose from adding an s to the collection name. Finally did it Alessio :D
+					   // although the version __v still remains!
+});
 
 // methods ======================
 // generating a hash
