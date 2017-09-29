@@ -1,10 +1,30 @@
 module.exports = function(app, passport) {
 
     // =====================================
-    // HOME PAGE (with login links) ========
+    // Index PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
         res.render('index.handlebars', {title: 'Index'}); // load the index.handlebars file
+    });
+
+    // =====================================
+    // HOME PAGE ===========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/home', isLoggedIn, function(req, res) {
+        res.render('home.handlebars', {
+            title: 'Home'
+        });
+    });
+
+    // =====================================
+    // TOP LEFT INFO =======================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/layout', isLoggedIn, function(req, res) {
+        user : req.user;
     });
 
     // =====================================

@@ -2,11 +2,11 @@
 
 
 // set up ======================================================================
-var express = require('express');
-var app      = express();
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+var express           = require('express');
+var app               = express();
+var path              = require('path');
+var logger            = require('morgan');
+var bodyParser        = require('body-parser');
 var expresshandlebars = require('express-handlebars');
 
 var mongoose = require('mongoose');
@@ -15,8 +15,7 @@ var flash    = require('connect-flash');
 
 var cookieParser = require('cookie-parser');
 var session      = require('express-session');
-
-var configDB = require('./config/database.js');
+var configDB     = require('./config/database.js');
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
