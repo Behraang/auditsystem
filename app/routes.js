@@ -60,6 +60,72 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    // =====================================
+    // STAT PAGE ===========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/stats', isLoggedIn, function(req, res) {
+        res.render('stats.handlebars', {
+            title: 'Detailed Stats'
+        });
+    });
+
+    // =====================================
+    // DATA ANALYSIS =======================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/daan', isLoggedIn, function(req, res) {
+        res.render('daan.handlebars', {
+            title: 'Data Analysis'
+        });
+    });
+
+    // =====================================
+    // MAQM ================================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/maqm', isLoggedIn, function(req, res) {
+        res.render('maqm.handlebars', {
+            title: 'Manual AQM'
+        });
+    });
+
+    // =====================================
+    // KANBAN BOARD ========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/kanban', isLoggedIn, function(req, res) {
+        res.render('kanban.handlebars', {
+            title: 'Kanban Board'
+        });
+    });
+
+    // =====================================
+    // NEWS BOARD ==========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/newsboard', isLoggedIn, function(req, res) {
+        res.render('newsboard.handlebars', {
+            title: 'News Board'
+        });
+    });
+
+    // =====================================
+    // NEWSLETTER ==========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/newsletter', isLoggedIn, function(req, res) {
+        res.render('newsletter.handlebars', {
+            title: 'Newsletter'
+        });
+    });
 };
 
 // route middleware to make sure a user is logged in
