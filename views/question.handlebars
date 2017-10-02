@@ -1,0 +1,55 @@
+<!-- Icon List -->
+<style>
+.demo-list-icon {
+  width: 300px;
+}
+</style>
+
+<div class="mdl-grid demo-content">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">13<tspan font-size="0.2" dy="-0.07">%</tspan></text>
+    </svg>
+
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">42<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">58<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+    <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+      <use xlink:href="#piechart" mask="url(#piemask)" />
+      <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">11<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+    </svg>
+  </div>
+
+  <div class="mdl-cell mdl-cell--12-col">   
+    <h3>Lates Audits</h3>
+    {{#if question}}
+      <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th class="mdl-data-table__cell--non-numeric">Text</th>
+            <th class="mdl-data-table__cell--non-numeric">Scale</th>
+            <th class="mdl-data-table__cell--non-numeric">Type</th>
+          </tr>
+        </thead>
+        {{#each question}}
+        <tbody>
+          <tr>
+            <td>{{number}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{text}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{scale}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{type}}</td>
+          </tr>
+        </tbody>
+        {{/each}} 
+      </table>   
+    {{/if}}
+  </div>
+  
+</div>

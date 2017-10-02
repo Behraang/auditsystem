@@ -1,5 +1,14 @@
 module.exports = function(app, passport) {
 
+    var mongoose = require('mongoose');
+    var fs = require('fs');
+
+    // load all models
+    fs.readdirSync(__dirname + '/models/').forEach(function(filename){
+        if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+    })
+
+
     // =====================================
     // Index PAGE (with login links) ========
     // =====================================
@@ -14,11 +23,32 @@ module.exports = function(app, passport) {
     // =====================================
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
+
     app.get('/home', isLoggedIn, function(req, res) {
-        res.render('home.handlebars', {
-            user : req.user, // get the user out of session and pass to template
-            title: 'Home'
-        });
+        mongoose.model('Response').find(function(err, response){
+            res.render('home.handlebars', {
+                user : req.user, // get the user out of session and pass to template
+                response: response, // pass response object to home page
+                title: 'Home' // load the home.handlebars file
+            })
+        })
+    });
+
+
+    // =====================================
+    // QUESTION PAGE =======================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+
+    app.get('/question', isLoggedIn, function(req, res) {
+        mongoose.model('Question').find(function(err, question){
+            res.render('question.handlebars', {
+                user : req.user, // get the user out of session and pass to template
+                question: question, // pass question object to question page
+                title: 'Question' // load the question.handlebars file
+            })
+        })
     });
 
     // =====================================

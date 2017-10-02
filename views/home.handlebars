@@ -27,7 +27,27 @@
   </div>
 
   <div class="mdl-cell mdl-cell--8-col">   
-    <p>This is homepage and you can see the latest results of whatever we are working on!</p>
+    <h3>Lates Audits</h3>
+    {{#if response}}
+      <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Username</th>
+            <th class="mdl-data-table__cell--non-numeric">Environment</th>
+            <th class="mdl-data-table__cell--non-numeric">Locale</th>
+          </tr>
+        </thead>
+        {{#each response}}
+        <tbody>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{username}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{environment}}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{locale}}</td>
+          </tr>
+        </tbody>
+        {{/each}} 
+      </table>   
+    {{/if}}
   </div>
 
   {{!-- Sidebar --}}
