@@ -51,6 +51,23 @@ module.exports = function(app, passport) {
         })
     });
 
+
+    // =====================================
+    // LOCALE PAGE =========================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+
+    app.get('/locale', isLoggedIn, function(req, res) {
+        mongoose.model('Locale').find(function(err, locale){
+            res.render('locale.handlebars', {
+                user : req.user, // get the user out of session and pass to template
+                locale: locale, // pass locale object to locale page
+                title: 'Locale' // load the locale.handlebars file
+            })
+        })
+    });
+
     // =====================================
     // TOP LEFT INFO =======================
     // =====================================
