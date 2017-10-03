@@ -9,7 +9,6 @@ var questionSchema = new mongoose.Schema({
     type        : String,
 },{ 
 	collection: 'question' // stop mongoose from adding an s to the collection name. Finally did it Alessio :D
-					       // although the version __v still remains!
 });
 
 // create the model for question and expose it to our app

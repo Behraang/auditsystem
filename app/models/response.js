@@ -14,7 +14,6 @@ var responseSchema = new mongoose.Schema({
     q3			 : String
 },{ 
 	collection: 'response' // stop mongoose from adding an s to the collection name. Finally did it Alessio :D
-					   // although the version __v still remains!
 });
 
 // create the model for response and expose it to our app
