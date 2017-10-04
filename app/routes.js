@@ -53,6 +53,17 @@ module.exports = function(app, passport) {
 
 
     // =====================================
+    // ADD QUESTION PAGE ===================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+
+    app.get('/addQuestion', isLoggedIn, function(req, res) {
+        res.render('addQuestion.handlebars');
+    });
+
+
+    // =====================================
     // LOCALE PAGE =========================
     // =====================================
     // we will want this protected so you have to be logged in to visit

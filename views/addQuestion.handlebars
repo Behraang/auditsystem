@@ -1,0 +1,74 @@
+<!-- Icon List -->
+<style>
+.demo-list-icon {
+  width: 300px;
+}
+</style>
+
+<div class="mdl-grid demo-content">
+
+  <div class="mdl-cell mdl-cell--12-col">
+
+    <h3>Add a Question</h3>
+    <form method="post" action="/addQuestion">
+
+      {{!-- NUMBER --}}
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="number">
+        <label class="mdl-textfield__label" for="number">Number...</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div><br>
+
+      {{!-- TEXT --}}
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" id="text">
+        <label class="mdl-textfield__label" for="text">Text...</label>
+      </div><br>
+
+      {{!-- SCALE --}}
+      <div class="mdl-card__title trv-title-fix">
+        <h4 class="mdl-card__title-text">Scale:</h4>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="scale-1-7">
+          <input class="mdl-radio__button" id="scale-1-7" name="scale" type="radio" value = "1-7" {{setChecked question.scale-1-7 '1-7'}}>
+          <span class="mdl-radio__label">1-7</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="scale-y-n">
+          <input class="mdl-radio__button" id="scale-y-n" name="scale" type="radio" value = "y/n" {{setChecked question.scale-y-n 'y/n'}}>
+          <span class="mdl-radio__label">Y/N</span>
+        </label>
+      </div><br>
+
+      {{!-- TYPE --}}
+      <div class="mdl-card__title trv-title-fix">
+        <h4 class="mdl-card__title-text">Type:</h4>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="type-ux">
+          <input class="mdl-radio__button" id="type-ux" name="type" type="radio" value = "ux" {{setChecked question.type-ux 'ux'}}>
+          <span class="mdl-radio__label">UX</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="type-quality">
+          <input class="mdl-radio__button" id="type-quality" name="type" type="radio" value = "quality" {{setChecked question.type-quality 'quality'}}>
+          <span class="mdl-radio__label">Quality</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="type-mr">
+          <input class="mdl-radio__button" id="type-mr" name="type" type="radio" value = "quality" {{setChecked question.type-mr 'mr'}}>
+          <span class="mdl-radio__label">Minimum Requirement</span>
+        </label>
+      </div><br>
+
+      {{!-- SUBMIT --}}
+      <div class="mdl-card__actions">
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">Create</button>
+          <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/">Cancel</a>
+        </div><br><br>
+
+
+    </form>
+
+
+  </div>
+  
+</div>
