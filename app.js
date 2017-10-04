@@ -19,7 +19,7 @@ var configDB     = require('./config/database.js');
 
 // configuration ===============================================================
 mongoose.connect(configDB.url,{
-  useMongoClient: true // to stop that ridiculous message on CLI 
+  useMongoClient: true // to stop that ridiculous message on CLI
 }); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration

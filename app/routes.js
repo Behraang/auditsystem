@@ -13,9 +13,12 @@ module.exports = function(app, passport) {
     // Index PAGE (with login links) =======
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index.handlebars', {
+
+        res.render('login.handlebars', {
+        message: req.flash('signupMessage'),
+        layout: 'layoutA.handlebars',
         user : req.user, // get the user out of session and pass to template
-        title: 'Index'}); // load the index.handlebars file
+        title: 'Login'}); // load the index.handlebars file
     });
 
     // =====================================
@@ -85,15 +88,16 @@ module.exports = function(app, passport) {
 
         // render the page and pass in any flash data if it exists
         res.render('login.handlebars', {
-            user : req.user, // get the user out of session and pass to template 
-            message: req.flash('loginMessage'), 
-            title: 'Login' }); 
+            layout: 'layoutA.handlebars',
+            user : req.user, // get the user out of session and pass to template
+            message: req.flash('loginMessage'),
+            title: 'Login' });
     });
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
@@ -104,13 +108,16 @@ module.exports = function(app, passport) {
     app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.handlebars', { message: req.flash('signupMessage'), title: 'Signup' });
+        res.render('signup.handlebars', {
+          layout: 'layoutA.handlebars',
+          message: req.flash('signupMessage'),
+          title: 'Signup' });
     });
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
@@ -210,7 +217,7 @@ module.exports = function(app, passport) {
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
-    // if user is authenticated in the session, carry on 
+    // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
         return next();
 
