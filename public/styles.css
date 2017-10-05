@@ -2,6 +2,8 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
+  background-image: url(../images/login_background.png);
+  background-size: 100%;
 }
 .demo-avatar {
   width: 64px;

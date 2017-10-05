@@ -87,8 +87,7 @@
             </button>
             {{#if user}}
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item"><a href="/profile">{{user.email}}</a></li>
-              <li class="mdl-menu__item"><i class="material-icons">remove</i><a href="/logout">Logout of this account...</li></a>
+              <li class="mdl-menu__item"><a href="/logout">Not {{user.username}}? Log out</li></a>
             </ul>
             {{/if}}
           </div>

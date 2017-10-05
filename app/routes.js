@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
 
         res.render('signup.handlebars', {
         message: req.flash('signupMessage'),
-        layout: 'layoutA.handlebars',
+        layout: 'start.handlebars',
         user : req.user, // get the user out of session and pass to template
         title: 'Signup'}); // load the index.handlebars file
     });
@@ -88,7 +88,7 @@ module.exports = function(app, passport) {
 
         // render the page and pass in any flash data if it exists
         res.render('login.handlebars', {
-            layout: 'layoutA.handlebars',
+            layout: 'start.handlebars',
             user : req.user, // get the user out of session and pass to template
             message: req.flash('loginMessage'),
             title: 'Login' });
@@ -109,7 +109,7 @@ module.exports = function(app, passport) {
 
         // render the page and pass in any flash data if it exists
         res.render('signup.handlebars', {
-          layout: 'layoutA.handlebars',
+          layout: 'start.handlebars',
           message: req.flash('signupMessage'),
           title: 'Signup' });
     });
